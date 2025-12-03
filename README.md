@@ -8,7 +8,10 @@
 
 * **Interactive UI:** A user-friendly, real-time chat interface developed using **Streamlit**.
 * **Local LLM Integration:** Powered by **Ollama**, ensuring privacy and quick inference with the lightweight **Phi3:mini** model.
-* **Document Processing (RAG):** Ability to process and chat with uploaded documents to provide context-aware answers.
+* **Document Processing (RAG):** Ability to process and chat with uploaded documents to provide context-aware answers. 
+
+[Image of Retrieval Augmented Generation RAG workflow]
+
 * **OCR Capability:** Handles **scanned PDF files** by using Optical Character Recognition (OCR) to extract text before processing.
 * **Multi-Format Support:** Accepts both plain **Text files** and **PDF documents**.
 
@@ -22,8 +25,8 @@
 | **Frontend** | **Streamlit** | Creating the interactive web application interface. |
 | **LLM Engine** | **Ollama** | Running and managing the local LLM. |
 | **Large Language Model** | **Phi3:mini** | The core model for generating responses. |
-| **Document Handling** | Likely **PyPDF2/pypdf** and **LangChain/LlamaIndex** | Document loading, chunking, and Retrieval-Augmented Generation (RAG). |
-| **OCR** | Likely **Tesseract** (via `pytesseract`) | Extracting text from image-based or scanned PDFs. |
+| **Document Handling** | **PyPDF2** | Fast extraction of native, embedded text from PDFs. |
+| **OCR** | **PaddleOCR / pdf2image** | Robust fallback for text extraction from scanned or image-based PDFs. |
 
 ---
 
@@ -36,8 +39,9 @@ Follow these steps to set up and run the DR_Chatbot locally.
 Before starting, ensure you have the following installed on your system:
 
 * **Python 3.8+**
-* **Ollama:** Download and install Ollama from the official website.
-* **(Optional for OCR)** If using Tesseract for OCR, ensure it is installed and configured on your system.
+* **Ollama:** Download and install Ollama from the [official website](https://ollama.com).
+* **Poppler (Crucial for PDF OCR):** The `pdf2image` library requires the Poppler utility to convert PDF pages to images.
+    * **Linux/macOS:** Install via package manager (e.g., `sudo apt-get install poppler-utils` or `brew install poppler`).
 
 ### 2. Clone the Repository
 
